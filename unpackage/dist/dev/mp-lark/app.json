@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/index",
+    "pages/integral/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#fff"
+  },
+  "devServer": {
+    "proxy": {
+      "/open-apis/auth/v3/tenant_access_token/internal": {
+        "target": "https://open.feishu.cn/",
+        "changeOrigin": true
+      }
+    },
+    "https": false,
+    "port": 3000
+  },
+  "usingComponents": {}
+}

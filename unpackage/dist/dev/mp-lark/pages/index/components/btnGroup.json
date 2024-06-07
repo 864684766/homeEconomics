@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "uni-grid-item": "../../../node-modules/@dcloudio/uni-ui/lib/uni-grid-item/uni-grid-item",
+    "uni-grid": "../../../node-modules/@dcloudio/uni-ui/lib/uni-grid/uni-grid",
+    "uni-popup-share": "../../../node-modules/@dcloudio/uni-ui/lib/uni-popup-share/uni-popup-share",
+    "uni-popup": "../../../node-modules/@dcloudio/uni-ui/lib/uni-popup/uni-popup"
+  }
+}

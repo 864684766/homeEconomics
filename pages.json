@@ -5,6 +5,18 @@
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
+		},
+		{
+			"path": "pages/user/index",
+			"style": {
+				"navigationBarTitleText": "user-info"
+			}
+		},
+		{
+			"path": "pages/integral/index",
+			"style": {
+				"navigationBarTitleText": ""
+			}
 		}
 	],
 	"easycom": {
@@ -17,8 +29,8 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#f8f8f8",
+		"backgroundColor": "#fff"
 	},
 	"uniIdRouter": {}
 }

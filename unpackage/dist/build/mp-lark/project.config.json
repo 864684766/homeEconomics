@@ -1,0 +1,16 @@
+{
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": false,
+    "minified": false,
+    "newFeature": true
+  },
+  "appid": "cli_a6d43e244ceb100b",
+  "projectname": "HomeEconomics",
+  "condition": {
+    "miniprogram": {
+      "current": -1
+    }
+  }
+}
