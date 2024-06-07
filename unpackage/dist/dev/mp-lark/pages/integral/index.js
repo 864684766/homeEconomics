@@ -1,1 +1,0 @@
-"use strict";const e=require("../../common/vendor.js"),n=e.defineComponent({__name:"index",setup(o){return e.onBeforeMount(()=>{e.uni.showShareMenu({withShareTicket:!0})}),(r,c)=>({})}}),t=e._export_sfc(n,[["__file","D:/test/homeEconomics/pages/integral/index.vue"]]);tt.createPage(t);

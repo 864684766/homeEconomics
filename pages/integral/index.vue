@@ -6,6 +6,9 @@
 
 <script lang="ts" setup>
 	import { onBeforeMount, onMounted } from 'vue';
+	import {
+		onLoad
+	} from "@dcloudio/uni-app";
 	onBeforeMount(() => {
 		// #ifndef H5
 		uni.showShareMenu({
@@ -22,6 +25,12 @@
 			path: '/pages/index/index',
 		};
 	};
+
+
+	// onLoad 接受 A 页面传递的参数
+	onLoad((option) => {
+		console.log("B 页面 onLoad:", option); //B 页面 onLoad: {id: '1', name: 'uniapp'}
+	});
 
 	onMounted(() => {
 		const pages = getCurrentPages();

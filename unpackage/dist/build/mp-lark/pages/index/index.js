@@ -1,1 +1,0 @@
-"use strict";const e=require("../../common/vendor.js");Math||t();const t=()=>"./components/btnGroup.js",n=e.defineComponent({__name:"index",setup(t){const n=e.ref(["/static/imgs/index/1.jpeg","/static/imgs/index/2.png","/static/imgs/index/3.webp"]),s=e=>{console.log(e)};return(t,o)=>({a:e.f(n.value,((e,t,n)=>({a:e}))),b:e.o(s)})}});tt.createPage(n);

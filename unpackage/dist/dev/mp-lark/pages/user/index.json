@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "user-info",
-  "usingComponents": {
-    "uni-dateformat": "../../node-modules/@dcloudio/uni-ui/lib/uni-dateformat/uni-dateformat",
-    "uni-group": "../../node-modules/@dcloudio/uni-ui/lib/uni-group/uni-group"
-  }
-}

@@ -20,6 +20,7 @@ import {
 } from 'vue'
 import Vuex from "vuex";
 import store from './store'
+
 export function createApp() {
 	const app = createSSRApp(App)
 	app.use(store)
