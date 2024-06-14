@@ -25,7 +25,7 @@ export const getFsSystemInfo = () => {
 /**
  * 获取飞书鉴权需要的参数
  */
-export const get_config_parameters = async () => {
+export const get_fs_config_parameters = async () => {
 	const token = await getAutoToken()
 	const ticket_obj = await h5_authorize_ticket(token)
 	const jsapi_ticket = ticket_obj.data.data.ticket
@@ -45,9 +45,9 @@ export const get_config_parameters = async () => {
 /**
  * 设置飞书的鉴权
  */
-export const set_feishu_config = () => {
+export const set_fs_config = () => {
 	return new Promise(async (resolve, reject) => {
-		const config = await get_config_parameters()
+		const config = await get_fs_config_parameters()
 		// 调用config接口进行鉴权
 		window.h5sdk.config({
 			appId: config.appid,
@@ -94,7 +94,7 @@ const login = async (provider : any) => {
 /**
  * 获取用户信息
  */
-export const getUserData = async () => {
+export const getFsUserData = async () => {
 	let code : any = ""
 	// #ifndef H5
 	const provider = await getProvider()
@@ -103,7 +103,7 @@ export const getUserData = async () => {
 	// #endif
 
 	// #ifdef H5
-	await set_feishu_config()
+	await set_fs_config()
 	// window.h5sdk.ready(async () => { // ready 方法不需要每次都调用。
 
 	// });

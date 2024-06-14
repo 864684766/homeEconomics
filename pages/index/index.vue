@@ -19,7 +19,7 @@
 	import { useStore } from 'vuex'
 	import btnGroup from './components/btnGroup.vue';
 	import {
-		set_feishu_config
+		set_fs_config
 	} from '@/unit/feishu/index.ts'
 	import {
 		isMpFeiShu
@@ -52,7 +52,7 @@
 		// #endif
 
 		// #ifdef H5
-		await set_feishu_config()
+		await set_fs_config()
 		// window.h5sdk.ready(async () => { // ready 方法不需要每次都调用。
 
 		// });
