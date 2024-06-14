@@ -1,4 +1,6 @@
 
+import { app_id, app_secret, h5_id, h5_secret } from '@/unit/conf.ts'
+
 const getUrl = (url : string) => {
 	// #ifdef MP-LARK
 	url = `https://open.feishu.cn${url}`
@@ -7,14 +9,21 @@ const getUrl = (url : string) => {
 }
 
 
-const app_id = "cli_a6d43e244ceb100b"
-const app_secret = "f76i5lak9WFyoqFFFNQMneYWlOW3Nub8"
-
-
 export const getH5LoginCode = async () => {
-	return await tt.requestAuthCode({
-		appId: app_id,
-	});
+	return new Promise((resolve, reject) => {
+		tt.requestAuthCode({
+			appId: h5_id,
+			success: (info) => {
+				resolve(info.code)
+				console.info(info.code)
+			},
+			fail: (error) => {
+				reject(error)
+				console.error(error)
+			}
+		});
+	})
+
 }
 
 /**
@@ -24,23 +33,26 @@ export const getAutoToken = async () => {
 	const token = {
 		data: ""
 	}
-	// let token = await uni.getStorage({ key: "autoToken" });
-	// if (!token.data) {
-	// console.log("没有token----------");
 	const data = {
 		app_id,
 		app_secret
 	}
-	const token_res : any = await getToken(data)
-	// console.log("token_res----------", token_res);
-	await uni.setStorage({ key: "autoToken", data: `Bearer ${token_res.data.tenant_access_token}` })
-	token.data = `Bearer ${token_res.data.tenant_access_token}`
-	// }
-	// console.log("token----------", token);
+	// #ifdef H5
+	data.app_id = h5_id
+	data.app_secret = h5_secret
+	const h5_res : any = await getH5Token(data)
+	token.data = `Bearer ${h5_res.data.tenant_access_token}`
+	// #endif
+	// #ifndef H5
+	const mp_res : any = await getMpToken(data)
+	token.data = `Bearer ${mp_res.data.tenant_access_token}`
+	// #endif
+	await uni.setStorage({ key: "autoToken", data: token.data })
+
 	return token.data
 }
 
-export const getToken = async (data : any) => {
+export const getMpToken = async (data : any) => {
 	try {
 		const url = getUrl("/open-apis/auth/v3/tenant_access_token/internal")
 		return await uni.request({
@@ -51,13 +63,17 @@ export const getToken = async (data : any) => {
 	} catch (e) {
 		//TODO handle the exception
 		console.log("e----", e);
+		uni.showToast({
+			title: `e----:${e}`,
+			duration: 0
+		});
 	}
 }
 
 
 export const getAccessToken = async (code : string) => {
 	try {
-		const token = await getAutoToken()
+		let token : any = await getAutoToken()
 		console.log("getAutoToken---------", token);
 		const data = {
 			grant_type: "authorization_code",
@@ -75,6 +91,10 @@ export const getAccessToken = async (code : string) => {
 	} catch (e) {
 		//TODO handle the exception
 		console.log("e----", e);
+		uni.showToast({
+			title: `e----:${e}`,
+			duration: 0
+		});
 	}
 }
 
@@ -91,6 +111,10 @@ export const getOpenId = async (accessToken : string) => {
 	} catch (e) {
 		//TODO handle the exception
 		console.log("e----", e);
+		uni.showToast({
+			title: `e----:${e}`,
+			duration: 0
+		});
 	}
 }
 
@@ -109,6 +133,10 @@ export const getUserInfo = async (openId : any) => {
 	} catch (e) {
 		//TODO handle the exception
 		console.log("e----", e);
+		uni.showToast({
+			title: `e----:${e}`,
+			duration: 0
+		});
 	}
 }
 
@@ -127,9 +155,12 @@ export const getTenantInfo = async () => {
 	} catch (e) {
 		//TODO handle the exception
 		console.log("e----", e);
+		uni.showToast({
+			title: `e----:${e}`,
+			duration: 0
+		});
 	}
 }
-
 
 export const getDepartmentInfo = async (department_id : any) => {
 	try {
@@ -143,7 +174,56 @@ export const getDepartmentInfo = async (department_id : any) => {
 			}
 		})
 	} catch (e) {
+		uni.showToast({
+			title: `e----:${e}`,
+			duration: 0
+		});
 		//TODO handle the exception
 		console.log("e----", e);
+	}
+}
+
+/**
+ * 获取H5鉴权
+ */
+export const getH5Token = async (data : any) => {
+	try {
+		const url = getUrl(`/open-apis/auth/v3/tenant_access_token/internal`)
+		return await uni.request({
+			url,
+			method: "POST",
+			data
+		})
+
+	} catch (e) {
+		//TODO handle the exception
+		uni.showToast({
+			title: `e----:${e}`,
+			duration: 0
+		});
+		console.log("e----", e);
+	}
+}
+
+/**
+ * 获取H5的ticket
+ */
+export const h5_authorize_ticket = async (token : string) => {
+	try {
+		const url = getUrl(`/open-apis/jssdk/ticket/get`)
+		return await uni.request({
+			url,
+			method: "POST",
+			header: {
+				Authorization: token
+			}
+		})
+	} catch (e) {
+		//TODO handle the exception
+		console.log("e----", e);
+		uni.showToast({
+			title: `e----:${e}`,
+			duration: 2000
+		});
 	}
 }

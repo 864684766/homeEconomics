@@ -1,17 +1,30 @@
 <script>
 	import {
-		getAutoToken
+		getAutoToken,
+		getH5Token,
+		h5_authorize_ticket
 	} from './api/index'
 
 	import {
-		getWebPath
+		getWebPath,
+		generateRandomString
 	} from "./unit/index"
+
+	import {
+		h5_id,
+		get_config_parameters
+	} from '@/unit/conf.ts'
+
 
 
 	export default {
-
 		onLaunch: async function() {
+			// #ifndef H5
 			await getAutoToken()
+			// #endif
+			// #ifdef H5
+
+			// #endif
 			console.log('App Launch')
 		},
 		onShow: function() {
@@ -19,7 +32,7 @@
 		},
 		onHide: function() {
 			console.log('App Hide')
-		},
+		}
 		// onShareAppMessage(res) {
 		// 	console.log("-----onShareAppMessage--------", res);
 		// 	const path = getWebPath()

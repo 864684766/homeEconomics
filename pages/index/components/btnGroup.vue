@@ -21,7 +21,7 @@
 
 	const btns = ref([{
 		icon: '/static/imgs/index/active.svg',
-		text: '活动公告'
+		text: '活动公告1'
 	}, {
 		icon: '/static/imgs/index/integral.svg',
 		text: '积分兑换',

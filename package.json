@@ -1,5 +1,8 @@
 {
 	"dependencies": {
-		"@dcloudio/uni-ui": "^1.5.5"
-	}
+		"@dcloudio/uni-ui": "^1.5.5",
+		"crypto-js": "^4.2.0",
+		"vconsole": "^3.15.1"
+	},
+	"scripts": {}
 }

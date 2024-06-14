@@ -81,9 +81,9 @@
 	import { getAccessToken, getDepartmentInfo, getOpenId, getTenantInfo, getUserInfo, getH5LoginCode } from '../../api';
 	const store = useStore()
 
-	onMounted(() => {
-		initData()
-	})
+	// onMounted(() => {
+	// 	initData()
+	// })
 	/**
 	 * 获取服务供应商
 	 */
@@ -117,7 +117,6 @@
 		// #ifdef H5
 		window.h5sdk.ready(async () => { // ready 方法不需要每次都调用。
 			const res = await getH5LoginCode()
-			debugger
 		});
 		// #endif
 		const accessTokenRes : any = await getAccessToken(code)

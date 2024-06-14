@@ -1,22 +1,16 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
+			"path": "pages/index/index"
 		},
 		{
-			"path": "pages/user/index",
-			"style": {
-				"navigationBarTitleText": "user-info"
-			}
+			"path": "pages/user/index"
 		},
 		{
-			"path": "pages/integral/index",
-			"style": {
-				"navigationBarTitleText": ""
-			}
+			"path": "pages/integral/index"
+		},
+		{
+			"path": "pages/error/index"
 		}
 	],
 	"easycom": {
@@ -28,7 +22,8 @@
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "",
+		"navigationStyle": "custom",
 		"navigationBarBackgroundColor": "#f8f8f8",
 		"backgroundColor": "#fff"
 	},
