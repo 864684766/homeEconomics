@@ -10,11 +10,14 @@
 
 	import {
 		getFullUrlPath
-	} from '@/unit/conf.ts'
+	} from '@/unit/common/index.ts'
 
 	import {
-		isMpFeiShu,
 		fillTemplate
+	} from '@/unit/common/index.ts'
+
+	import {
+		isMpFeiShu
 	} from '@/unit/index.ts'
 
 	import {

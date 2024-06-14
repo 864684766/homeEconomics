@@ -70,7 +70,7 @@
 <script setup lang="ts">
 	import {
 		getWebPath
-	} from '../../unit/index'
+	} from '@/unit/common/index'
 	import {
 		computed,
 		onMounted,

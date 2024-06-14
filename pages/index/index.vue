@@ -20,7 +20,7 @@
 	import btnGroup from './components/btnGroup.vue';
 	import {
 		set_feishu_config
-	} from '@/unit/conf.ts'
+	} from '@/unit/feishu/index.ts'
 	import {
 		isMpFeiShu
 	} from '@/unit/index.ts'

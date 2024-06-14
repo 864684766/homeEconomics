@@ -8,14 +8,7 @@
 	import {
 		getWebPath,
 		generateRandomString
-	} from "./unit/index"
-
-	import {
-		h5_id,
-		get_config_parameters
-	} from '@/unit/conf.ts'
-
-
+	} from "./unit/common/index"
 
 	export default {
 		onLaunch: async function() {
