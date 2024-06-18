@@ -81,7 +81,7 @@
 			const cardData = {
 				cardIntro: "消息的简介",
 				reportUrl: getFullUrlPath(),
-				cardHead: '🧿飞书未来公开课直播间，带你探索OKR'
+				cardHead: '🧿测试 - 分享功能'
 			}
 			const filled_template : any = fillTemplate(cardTmp, cardData)
 
