@@ -60,7 +60,7 @@
 							{
 								"tag": "button",
 								"text": {
-									"content": "立即加入",
+									"content": "立即查看",
 									"tag": "plain_text"
 								},
 								"type": "primary",

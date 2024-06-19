@@ -20,8 +20,11 @@ import {
 } from 'vue'
 import Vuex from "vuex";
 import store from './store'
+
+// #ifdef H5
 import VConsole from "vconsole";
 const vconsole = new VConsole()
+// #endif
 
 export function createApp() {
 	const app = createSSRApp(App)
